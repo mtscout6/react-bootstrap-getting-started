@@ -27,3 +27,10 @@ the less Bootstrap entry point in `App.js` with the line `import
 
 Re-run `npm run build` and reload the index.html in your browser. You should see
 that the H1 text is not using the default fonts defined in Bootstrap CSS.
+
+## Step 2 - Get React-Bootstrap wired up
+
+Using npm install React-Bootstrap and replace the `h1` tag with a
+large React-Bootstrap Button with the style of sucess.
+
+For the solution checkout tag step-2-solution with `git checkout step-2-solution`
