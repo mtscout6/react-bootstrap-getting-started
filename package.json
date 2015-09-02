@@ -1,0 +1,26 @@
+{
+  "name": "thinkful-react-bootstrap-example",
+  "version": "0.0.0",
+  "description": "React-Bootstrap example for Thinkful",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack -w"
+  },
+  "author": "Matthew L Smith <mtscout6@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-core": "^5.8.23",
+    "babel-loader": "^5.3.2",
+    "css-loader": "^0.16.0",
+    "file-loader": "^0.8.4",
+    "less": "^2.5.1",
+    "less-loader": "^2.2.0",
+    "style-loader": "^0.12.3",
+    "webpack": "^1.12.0"
+  },
+  "dependencies": {
+    "react": "^0.13.3"
+  }
+}
