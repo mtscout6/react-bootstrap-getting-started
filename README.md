@@ -80,4 +80,92 @@ Using the [`Navbar`](http://react-bootstrap.github.io/components.html#navbars),
 [`Button`](http://react-bootstrap.github.io/components.html#buttons) components
 from React-Bootstrap build the header navigation.
 
-For the solution checkout tag step-3-solution with `git checkout step-3-solution`
+### Solution
+
+One of the tenants of a good React application is the ability to break-up smaller
+components from the bigger picture of your web application as a whole. So, for
+this exercise we will create a new component call the `HeaderNavigation`
+component. Create a new file in the `src` folder called `HeaderNavigation.js`. 
+
+In this file import React, and the React-Bootstrap components you will need:
+
+```
+import React from 'react';
+import Navbar from 'react-bootstrap/lib/Navbar';
+import Nav from 'react-bootstrap/lib/Nav';
+import Input from 'react-bootstrap/lib/Input';
+import Button from 'react-bootstrap/lib/Button';
+```
+
+Next define and export your new component:
+
+```
+export default HeaderNavigation extends React.Component {
+  render() {
+    return (
+      // Your components implementation will go here.
+      <div>Content</div>
+    );
+  }
+}
+```
+
+To make sure you have wired up this component properly let's add it into the
+main app now and ensure it's rendering to the screen. In the `App.js` file
+import this new component and replace the Button getting rendered with this new
+component. That should look in part like `React.render(<HeaderNavigation />,
+document.getElementById('app'));`.
+
+Once you are confident that your new component is wired up change that render
+function to buld the navigation bar.
+
+```
+render() {
+  let brand = <a href='#'>Project Name</a>;
+  return (
+    <Navbar brand={brand} fixedTop inverse>
+      {/* Nav content will go here */}
+    </Navbar>
+  );
+}
+```
+
+Note that there is a `brand` prop on the `Navbar` component that can take either
+a string or another React element. This will allow you to use an image, link, or
+whatever your heart desires reside under the brand bootstrap class. The CSS
+class `navbar-brand` will get inserted into the top level element that you pass
+to the `brand` prop. Take a moment to inspect the HTML that is rendered by this.
+
+Now the inline form elements are aligned to the right of the `Navbar`. Within the
+`Navbar` element add a `Nav` element with the prop `right`:
+
+```
+<Nav right>
+  {/* Inline form elements will go here */}
+</Nav>
+```
+
+Now for the inline form:
+
+```
+  <form className='navbar-form' action="">
+    <Input type='text' placeholder='Email' />{' '}
+    <Input type='text' placeholder='Password' />{' '}
+    <Button bsStyle='success' type='submit'>Sign in</Button>
+  </form>
+```
+
+Note the odd use of `{' '}` at the end of each line with the `Input` elements.
+This is there because of a limitation with JSX. In normal Html browsers recognize
+this line break and apply a space between your elements implicitly. Due to the
+nature of JavaScript and now minifiers can and will strip out white space JSX
+will not impolicity put that space in there for you. So, you have to do it
+yourself.
+
+Now for one last finishing touch, in the example from the Bootstrap docs you
+will note that this Navigation is responsive. To acheive the same thing with
+React-Bootstrap all you need to do is add `toggleNavKey={0}` to the `Navbar` and
+`eventKey={0}` to the `Nav`. `0` in this case is the key used to coordinate
+those two together. Resize the window to a mobile device size and observe what
+this does to the inline form.
+
