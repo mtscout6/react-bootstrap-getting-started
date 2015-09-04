@@ -287,4 +287,97 @@ Validation](http://getbootstrap.com/css/#forms-control-validation) using the
 [`Input`](http://react-bootstrap.github.io/components.html#input-validation)
 component from React-Bootstrap
 
-For the solution checkout tag step-6-solution with `git checkout step-6-solution`
+### Solution
+
+First create a new `InlineLogin` component and move the inline form elements
+from the `HeaderNavigation` to the new `InlineLogin` component. Your
+`HeaderNavigation` will now look something like:
+
+```
+<Navbar brand={brand} fixedTop inverse toggleNavKey={0}>
+  <Nav right eventKey={0}>
+    <InlineLogin className='navbar-form' />
+  </Nav>
+</Navbar>
+```
+
+Next add an `onSubmit` function to the `InlineLogin` component. The purpose of
+this function is to provide an oportunity to change the behavior of the form
+submission. For now we are just going to prevent the form from publishing to a
+server.
+
+```
+onSubmit(e) {
+  e.preventDefault();
+}
+```
+
+To make the form use this function you'll nee to add an
+`onSubmit={this.onSubmit}` prop which will invoke this function whenver the form
+is submitted.
+
+Next we will add an `onEmailChange` function which will validate the user's
+input as they type.
+
+```
+onEmailChange(e) {
+  const value = this.refs.email.getValue();
+
+  if (/.+@.+\.com/.test(value)) {
+    this.setState({emailValid: 'success'});
+  } else {
+    this.setState({emailValid: 'error'});
+  }
+}
+```
+
+Note that the `onEmailChange` event here is calling
+`this.refs.email.getValue()`. This will utilize the [React
+refs](https://facebook.github.io/react/docs/more-about-refs.html) of the
+instance of the element to which this function is bound (see follow on
+paragraphs about the binding) to get the `Input` component for the email input.
+You'll need to add the `ref='email'` prop to that input for this to work.
+React-Bootstrap provides a method on `Input` components to get the value entered
+by the user into it.
+
+The `/.+@.+\.com/` code is a very basic [Regular
+Expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
+to ensure that the email address is an email address with an `@` symbol ending
+in `.com`. _Note: This is a very basic regex that is not suitable for production
+usage. It is mainly used here to convey validation behavior with React-Bootstrap
+Inputs._
+
+You will also need to add a `constructor` function to the component that binds
+the `onEmailChange` function to each individual instance of `InlineLogin`. This
+constructor will also initialize the Component's state to an empty JavaScript
+object.
+
+```
+constructor() {
+  super();
+
+  this.onEmailChange = this.onEmailChange.bind(this);
+  this.state = {};
+}
+```
+
+Now that your `onEmailChange` function can do validation is time to add an
+`onChange={this.onEmailChange}` prop to your email input so it will get invoked
+as the user types something in. You will want to see the change so use the
+`bsStyle={this.state.emailValid}` prop to see the Bootstrap form validation
+styling. To see the validation Icon add the `hasFeedback` prop. Your email input
+should now look like:
+
+```
+<Input
+  ref='email'
+  type='text'
+  bsStyle={this.state.emailValid}
+  placeholder='Email'
+  onChange={this.onEmailChange}
+  hasFeedback
+/>
+```
+
+Test this in your browser by typing in the email address `test@test.com`,
+observe how the `Input` validation is updated as you type.
