@@ -179,4 +179,79 @@ Using the
 [`Button`](http://react-bootstrap.github.io/components.html#buttons) components
 from React-Bootstrap build the content body.
 
-For the solution checkout tag step-4-solution with `git checkout step-4-solution`
+### Solution
+
+Add a new component called `Body` and include it under the `HeaderNavigation`
+component within the `App` component. Since `React.render` can only take one
+element you'll need to wrap them with a `<div>`.
+
+```
+React.render(
+  <div>
+    <HeaderNavigation />
+    <Body />
+  </div>
+  , document.getElementById('app'));
+```
+
+Your `Body` component will also need to wrap it's content in a `<div>` since you
+can only return a single element from a React Component's `render` function.
+
+```
+export default class Body extends React.Component {
+  render() {
+    return (
+      <div>
+        {/* Body content will go here */}
+      </div>
+    );
+  }
+}
+```
+
+The next element to use is a `Jumbotron`, this is what's providing the grey
+background of the document header. In the `HeaderNavigation` when you used the
+`Navbar` component it was applying [Bootstrap's
+`container`](http://getbootstrap.com/css/#grid) class for you. The `Grid`
+component from React-Bootstrap will do the same thing for you. To center the
+content of the `Jumbotron` use a `Grid` as it's only child. 
+
+Now you can simple add the `<h1>`, `<p>`, and `<Button>` as presented by the
+[Bootstrap Example](http://getbootstrap.com/examples/jumbotron/).
+
+Check your changes in the browser. You will notice that the `Jumbotron` is
+sitting higher up in the document than in Bootstrap's Example. This is because
+the `Navbar` is fixed to the top of the document and all the other content will
+flow beneath it. The Example is using custom CSS to push the `Jumbotron` about
+`48px` from the top of the document, essentially putting it below the `Navbar`.
+To fix this add a custom CSS file that adds the appropriate `margin-top` above
+the `Jumbotron`, then import that custom css into your `App.js` file so Webpack
+will include it in the bundle. Check your changes in the browser to ensure that
+the `Jumbotron` is correctly positioned.
+
+Next are the three descriptions with each housing a description. Use a new
+`Grid` component below the `Jumbotron` with a single `Row` and three `Col`s.
+Since [Bootstrap's Grid System](http://getbootstrap.com/css/#grid) has up to 12
+columns and we need three blocks, we can infer that each block should span 4
+columns. This is achievable by adding the `md={4}` prop to each `Col`. 
+
+```
+<Grid>
+  <Row>
+    <Col md={4}>
+      {/* Block content */}
+    </Col>
+    <Col md={4}>
+      {/* Block content */}
+    </Col>
+    <Col md={4}>
+      {/* Block content */}
+    </Col>
+  </Row>
+</Grid>
+```
+
+Now simply add the `<h2>`, `<p>`, and `<p><Button /></p>` content to each block.
+Note that when viewing this in the browser that this column layout is
+responsive, resize the window to a mobile sized view and observe what the
+columns do.
