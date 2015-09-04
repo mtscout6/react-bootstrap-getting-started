@@ -260,4 +260,17 @@ columns do.
 
 Add the page footer from the [Boostrap Example](http://getbootstrap.com/examples/jumbotron/).
 
-For the solution checkout tag step-5-solution with `git checkout step-5-solution`
+### Solution
+
+Add a `Footer` component to your project that uses a `Grid` to center the
+content, with an `<hr />` and `<footer>` element with the copyright
+information.
+
+```
+<Grid>
+  <hr />
+  <footer>
+    <p>© Company 2014</p>
+  </footer>
+</Grid>
+```
