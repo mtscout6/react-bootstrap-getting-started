@@ -169,3 +169,14 @@ React-Bootstrap all you need to do is add `toggleNavKey={0}` to the `Navbar` and
 those two together. Resize the window to a mobile device size and observe what
 this does to the inline form.
 
+## Step 4 - Implement content Body
+
+Using the
+[`Jumbotron`](http://react-bootstrap.github.io/components.html#jumbotron),
+[`Grid`](http://react-bootstrap.github.io/components.html#grids),
+[`Row`](http://react-bootstrap.github.io/components.html#grids),
+[`Col`](http://react-bootstrap.github.io/components.html#grids), and
+[`Button`](http://react-bootstrap.github.io/components.html#buttons) components
+from React-Bootstrap build the content body.
+
+For the solution checkout tag step-4-solution with `git checkout step-4-solution`
