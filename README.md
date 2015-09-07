@@ -255,3 +255,9 @@ Now simply add the `<h2>`, `<p>`, and `<p><Button /></p>` content to each block.
 Note that when viewing this in the browser that this column layout is
 responsive, resize the window to a mobile sized view and observe what the
 columns do.
+
+## Step 5 - Add Page Footer
+
+Add the page footer from the [Boostrap Example](http://getbootstrap.com/examples/jumbotron/).
+
+For the solution checkout tag step-5-solution with `git checkout step-5-solution`
