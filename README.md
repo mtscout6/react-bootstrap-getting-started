@@ -72,3 +72,12 @@ more setup which is why I only mention that they exist. (See
 [React-Hot-Loader](http://gaearon.github.io/react-hot-loader/) for further
 details.)_
 
+## Step 3 - Add header navigation with inline form
+
+Using the [`Navbar`](http://react-bootstrap.github.io/components.html#navbars),
+[`Nav`](http://react-bootstrap.github.io/components.html#navs),
+[`Input`](http://react-bootstrap.github.io/components.html#input), and
+[`Button`](http://react-bootstrap.github.io/components.html#buttons) components
+from React-Bootstrap build the header navigation.
+
+For the solution checkout tag step-3-solution with `git checkout step-3-solution`
