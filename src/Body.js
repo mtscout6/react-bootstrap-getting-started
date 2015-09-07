@@ -4,6 +4,7 @@ import Grid from 'react-bootstrap/lib/Grid';
 import Jumbotron from 'react-bootstrap/lib/Jumbotron';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
+import LearnMore from './LearnMore';
 
 export default class Body extends React.Component {
   render() {
@@ -13,7 +14,7 @@ export default class Body extends React.Component {
           <Grid>
             <h1>Hello, world!</h1>
             <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><Button bsStyle='primary' bsSize='large'>Learn more »</Button></p>
+            <LearnMore />
           </Grid>
         </Jumbotron>
         <Grid>

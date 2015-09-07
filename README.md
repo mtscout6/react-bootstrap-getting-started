@@ -390,4 +390,72 @@ change the "Learn more »" button to display a `Modal`. Use the title "Learn
 More" with the body text "This demonstrates how to use the Modal component from
 React-Bootstrap"
 
-For the solution checkout tag step-7-solution with `git checkout step-7-solution`
+### Solution
+
+To start off let's move the "Learn more »" button into it's own component called
+`LearnMore`. Then add the functions `closeModal` and `openModal` to the
+component with a `constructor` that binds the functions to the individual
+instances of the `LearnMore` component.
+
+```
+constructor() {
+  super();
+
+  this.closeModal = this.closeModal.bind(this);
+  this.openModal = this.openModal.bind(this);
+
+  this.state = {
+    open: false
+  }
+}
+
+closeModal() {
+  this.setState({open: false})
+}
+
+openModal() {
+  this.setState({open: true})
+}
+```
+
+Note that all these functions are doing is defining the rules for opening and
+closing the modal through the component's state.
+
+Next add an `onClick={this.openModal}` prop to the "Learn more »" button which
+will toggle the stage to open.
+
+Then add the `Modal` with the `show` prop fed by the component's `open` state.
+The `onHide={this.closeModal}` prop is used to define what happens when the user
+clicks on the faded grey background behind the `Modal` or the `Modal`'s X in the top
+right corner. Another common occurence with `Modal`'s is a footer bar where
+`Button`s are used to convey action to take for the given `Modal`.
+
+```
+<Modal show={this.state.open} onHide={this.closeModal}>
+  <Modal.Header closeButton>
+    <Modal.Title>Learn More</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    This demonstrates how to use the Modal component from React-Bootstrap
+  </Modal.Body>
+  <Modal.Footer>
+    <Button onClick={this.closeModal}>Close</Button>
+  </Modal.Footer>
+</Modal>
+```
+
+## Conclusion
+
+React-Bootstrap is a great library useful for quickly building up a web
+application with styling rules well defined by the Bootstrap community. There
+are many themes available that work with the Bootstrap naming scheme that also
+work with React-Bootstrap. Take some time to try and use different Bootstrap
+Themes and see how you can change the look and fill of this application without
+changing the core logic of how it works.
+
+Here's some popular sources for pre-built Bootstrap Themes:
+
+- [{wrap}bootstrap](https://wrapbootstrap.com/)
+- [Bootswatch](https://bootswatch.com/)
+- [Start Bootstrap](http://startbootstrap.com/)
+- Plus many more available, you just need to search for them!
