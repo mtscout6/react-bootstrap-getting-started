@@ -381,3 +381,13 @@ should now look like:
 
 Test this in your browser by typing in the email address `test@test.com`,
 observe how the `Input` validation is updated as you type.
+
+## Step 7 - Change the "Learn More" Button to show a Modal
+
+The last component from React-Bootstrap that we will work with is the
+[`Modal`](http://react-bootstrap.github.io/components.html#modals). In this step
+change the "Learn more »" button to display a `Modal`. Use the title "Learn
+More" with the body text "This demonstrates how to use the Modal component from
+React-Bootstrap"
+
+For the solution checkout tag step-7-solution with `git checkout step-7-solution`
