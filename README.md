@@ -274,3 +274,17 @@ information.
   </footer>
 </Grid>
 ```
+
+## Step 6 - Change inputs to do client side validation
+
+Everything up to this point is now inline with the [Bootstrap
+Example](http://getbootstrap.com/examples/jumbotron/), so let's spice it up a
+little bit to see more of the power that React-Bootstrap can provide for you.
+
+Let's refactor the Inline Form from the `NavigationHeader` into it's own
+component. Then after that is complete add [Bootstrap Input
+Validation](http://getbootstrap.com/css/#forms-control-validation) using the
+[`Input`](http://react-bootstrap.github.io/components.html#input-validation)
+component from React-Bootstrap
+
+For the solution checkout tag step-6-solution with `git checkout step-6-solution`
